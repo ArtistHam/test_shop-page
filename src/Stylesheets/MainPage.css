@@ -1,0 +1,149 @@
+.main-page {
+  display: flex;
+  margin-top: 47px;
+}
+
+.main-page main {
+  margin-top: -7px;
+  width: 1126px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  width: 314px;
+  height: 200px;
+}
+
+.sidebar-menu {
+  margin-left: 99px;
+  list-style-type: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+.sidebar-menu-item {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 15px 0;
+  letter-spacing: 0.666667px;
+}
+
+.sidebar-menu-item:first-child {
+  padding-top: 0px;
+}
+
+.sort-btn {
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.7px;
+  padding-top: 35px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dropdownOff {
+  width: 12px;
+  height: 6px;
+  position: absolute;
+  right: 0;
+  margin-right: 101px;
+  background: center center url(../Images/dropdown-off.svg);
+}
+
+.sidebar-dropdown {
+  border: 1px solid black;
+  margin: 0 62px 0 60px;
+}
+
+.dropdown-menu {
+  list-style-type: none;
+  padding-inline-start: 0px;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  text-align: right;
+  padding: 20px 15px;
+}
+
+.dropdown-menu-item {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.6px;
+  margin-bottom: 15px;
+}
+
+.dropdown-menu-item:last-child {
+  margin-bottom: 0px;
+}
+
+.item-card {
+  width: 280px;
+  height: 506px;
+  background-color: white;
+  margin-right: 80px;
+  margin-bottom: 30px;
+}
+
+.item-card:hover {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.0697115);
+}
+
+.item-card-image {
+  width: 280px;
+  height: 389px;
+  background-color: blue;
+}
+
+.item-card-description {
+  padding: 15px 20px 18px 20px;
+}
+
+.item-card-description-category {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: #A3A3A3;
+}
+
+.item-card-description-name {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  margin-top: 2px;
+}
+
+.item-card-description-price {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.item-card-description-stock {
+  font-family: Roboto;
+font-style: normal;
+font-weight: 300;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: 1px;
+color: #A3A3A3;
+text-align: center;
+}

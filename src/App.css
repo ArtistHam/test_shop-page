@@ -1,0 +1,11 @@
+.app-wrapper {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.App {
+  height: "100vh";
+  display: "flex";
+  flex-direction: "column";
+  justify-content: "space-between";
+}
