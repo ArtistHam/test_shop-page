@@ -11,17 +11,28 @@ import cart from "../Images/cart_inactive.svg";
 import "../Stylesheets/Topbar.css";
 
 class Topbar extends Component {
+  state = {
+    isCartOpen: false,
+  }
+
+  toggleCart = () => {
+    const { state: { isCartOpen } } = this;
+    this.setState({ isCartOpen: !isCartOpen });
+  }
+
   render() {
+    const { state: { isCartOpen } } = this;
     return (
       <div className="topbar">
         <img src={logo} alt="cite logo" />
-        <div className="cart-icon-wrapper">
+        <div className="cart-icon-wrapper" onClick={this.toggleCart}>
           <img className="cart-icon" src={cart} alt="cart" />
           <div className="cart-products-counter">2</div>
         </div>
+        { isCartOpen && (
         <div className="cart-wrapper">
           <div className="cart">
-            <span className="cart-close" />
+            <span className="cart-close" onClick={this.toggleCart} />
             <div className="items-list">
               <div className="item">
                 <div className="item-miniature" />
@@ -55,6 +66,7 @@ class Topbar extends Component {
             <button type="button" className="buy-btn">Купить</button>
           </div>
         </div>
+        ) }
       </div>
     );
   }
