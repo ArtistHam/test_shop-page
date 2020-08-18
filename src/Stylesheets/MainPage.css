@@ -45,6 +45,7 @@
   display: flex;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .dropdownOff {
@@ -56,9 +57,17 @@
   background: center center url(../Images/dropdown-off.svg);
 }
 
+.dropdownOn {
+  transform: rotate(180deg);
+}
+
 .sidebar-dropdown {
   border: 1px solid black;
   margin: 0 62px 0 60px;
+}
+
+.sidebar-dropdown-disabled {
+  display: none;
 }
 
 .dropdown-menu {
@@ -139,11 +148,11 @@
 
 .item-card-description-stock {
   font-family: Roboto;
-font-style: normal;
-font-weight: 300;
-font-size: 10px;
-line-height: 12px;
-letter-spacing: 1px;
-color: #A3A3A3;
-text-align: center;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1px;
+  color: #A3A3A3;
+  text-align: center;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
@@ -7,7 +8,17 @@ import "../Stylesheets/MainPage.css";
 
 
 class MainPage extends Component {
+  state = {
+    showSortDropdown: false,
+  };
+
+  toggleSortDropdown = () => {
+    const { state: { showSortDropdown } } = this;
+    this.setState({ showSortDropdown: !showSortDropdown });
+  }
+
   render() {
+    const { state: { showSortDropdown } } = this;
     return (
       <div className="main-page">
         <aside className="sidebar">
@@ -17,12 +28,12 @@ class MainPage extends Component {
             <li className="sidebar-menu-item">КРОССОВКИ</li>
             <li className="sidebar-menu-item">РУБАШКИ</li>
             <li className="sidebar-menu-item">БРЮКИ</li>
-            <li className="sidebar-menu-item sort-btn">
+            <li className="sidebar-menu-item sort-btn" onClick={this.toggleSortDropdown}>
               Сортировать
-              <span className="dropdownOff" />
+              <span className={`dropdownOff ${showSortDropdown ? "" : "dropdownOn"}`} />
             </li>
           </ul>
-          <div className="sidebar-dropdown">
+          <div className={`sidebar-dropdown ${showSortDropdown ? "" : "sidebar-dropdown-disabled"}`}>
             <ul className="dropdown-menu">
               <li className="dropdown-menu-item">От дорогих к дешевым</li>
               <li className="dropdown-menu-item">От дешевых к дорогим</li>
@@ -99,6 +110,6 @@ class MainPage extends Component {
 }
 
 // eslint-disable-next-line no-unused-vars
-const mapStateToProps = (state) => ({});
+const mapStateToProps = state => ({});
 
 export default connect(mapStateToProps, {})(MainPage);
