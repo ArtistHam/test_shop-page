@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import routes from "../Helpers/routes";
 
+import { getProductList } from "../Actions/products.action";
+
 import "../Stylesheets/MainPage.css";
 
 
@@ -13,6 +15,11 @@ class MainPage extends Component {
   state = {
     showSortDropdown: false,
   };
+
+  componentDidMount = () => {
+    const { props: { getProductList } } = this;
+    getProductList();
+  }
 
   toggleSortDropdown = () => {
     const { state: { showSortDropdown } } = this;
@@ -25,7 +32,14 @@ class MainPage extends Component {
   }
 
   render() {
-    const { state: { showSortDropdown } } = this;
+    const {
+      state: {
+        showSortDropdown,
+      },
+      props: {
+        productList,
+      },
+    } = this;
     return (
       <div className="main-page">
         <aside className="sidebar">
@@ -50,17 +64,24 @@ class MainPage extends Component {
           </div>
         </aside>
         <main className="main-page-content">
-          <div className="item-card" onClick={this.goToProductPage}>
-            <div className="item-card-image" />
-            <div className="item-card-description">
-              <div className="item-card-description-category">РУБАШКИ</div>
-              <div className="item-card-description-name">Рубашка на пуговицах</div>
-              <div className="item-card-description-price">$320</div>
-              <div className="item-card-description-stock">на складе: 20</div>
+          {productList.map(product => (
+            <div className="item-card" onClick={this.goToProductPage}>
+              <img src={product.image} className="item-card-image" />
+              <div className="item-card-description">
+                <div className="item-card-description-category">{product.category}</div>
+                <div className="item-card-description-name">{product.name}</div>
+                <div className="item-card-description-price">{product.price}</div>
+                <div className="item-card-description-stock">
+                  на складе:
+                  {" "}
+                  {product.in_stock}
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
 
-          <div className="item-card" onClick={this.goToProductPage}>
+
+          {/* <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -108,7 +129,7 @@ class MainPage extends Component {
               <div className="item-card-description-price">$647</div>
               <div className="item-card-description-stock">на складе: 7</div>
             </div>
-          </div>
+          </div> */}
 
         </main>
       </div>
@@ -117,6 +138,10 @@ class MainPage extends Component {
 }
 
 // eslint-disable-next-line no-unused-vars
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  productList: state.ProductList,
+});
 
-export default connect(mapStateToProps, {})(withRouter(MainPage));
+export default connect(mapStateToProps, {
+  getProductList,
+})(withRouter(MainPage));

@@ -1,6 +1,6 @@
 
-import User from "./Reducers/User.reducer";
+import ProductList from "./Reducers/Products.reducer";
 
 export default {
-  User,
+  ProductList,
 };

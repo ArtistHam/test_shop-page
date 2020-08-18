@@ -110,7 +110,7 @@
 .item-card-image {
   width: 280px;
   height: 389px;
-  background-color: blue;
+  background-color: #a3a3a3;
 }
 
 .item-card-description {
@@ -125,6 +125,7 @@
   line-height: 12px;
   letter-spacing: 1px;
   color: #A3A3A3;
+  text-transform: uppercase;
 }
 
 .item-card-description-name {
