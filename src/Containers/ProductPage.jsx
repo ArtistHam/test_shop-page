@@ -1,17 +1,24 @@
 /* eslint-disable react/prefer-stateless-function */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
+import routes from "../Helpers/routes";
 import "../Stylesheets/ProductPage.css";
 import tick from "../Images/dropdown-off.svg";
 
 class ProductPage extends Component {
+  goToRoot = () => {
+    const { props: { history: { push } } } = this;
+    push(routes.root);
+  }
+
   render() {
     return (
       <div className="product-page">
         <div className="item-preview" />
         <div className="product-information">
-          <button type="button" className="back-btn">
+          <button type="button" onClick={this.goToRoot} className="back-btn">
             <img className="back-symbol" alt="Back" src={tick} />
             НАЗАД
           </button>
@@ -62,4 +69,4 @@ class ProductPage extends Component {
 // eslint-disable-next-line no-unused-vars
 const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps, {})(ProductPage);
+export default connect(mapStateToProps, {})(withRouter(ProductPage));

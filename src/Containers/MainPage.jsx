@@ -3,6 +3,8 @@
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import routes from "../Helpers/routes";
 
 import "../Stylesheets/MainPage.css";
 
@@ -15,6 +17,11 @@ class MainPage extends Component {
   toggleSortDropdown = () => {
     const { state: { showSortDropdown } } = this;
     this.setState({ showSortDropdown: !showSortDropdown });
+  }
+
+  goToProductPage = () => {
+    const { props: { history: { push } } } = this;
+    push(routes.product);
   }
 
   render() {
@@ -43,7 +50,7 @@ class MainPage extends Component {
           </div>
         </aside>
         <main className="main-page-content">
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -53,7 +60,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -63,7 +70,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">ОБУВЬ</div>
@@ -73,7 +80,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -83,7 +90,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -93,7 +100,7 @@ class MainPage extends Component {
             </div>
           </div>
 
-          <div className="item-card">
+          <div className="item-card" onClick={this.goToProductPage}>
             <div className="item-card-image" />
             <div className="item-card-description">
               <div className="item-card-description-category">РУБАШКИ</div>
@@ -112,4 +119,4 @@ class MainPage extends Component {
 // eslint-disable-next-line no-unused-vars
 const mapStateToProps = state => ({});
 
-export default connect(mapStateToProps, {})(MainPage);
+export default connect(mapStateToProps, {})(withRouter(MainPage));
