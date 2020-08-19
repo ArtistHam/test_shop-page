@@ -152,7 +152,14 @@
   text-transform: uppercase;
   color: #FFFFFF;
   padding: 22px 93px;
+  cursor: pointer;
 }
+
+.buy-btn:focus {
+  outline: none;
+}
+
 .empty-cart-text {
   text-align: center;
+  height: 20px;
 }

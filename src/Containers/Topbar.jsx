@@ -43,6 +43,10 @@ class Topbar extends Component {
     setCartItem({ id, count: item.count + 1 });
   };
 
+  hireDeveloper = () => {
+    window.location.replace("https://www.linkedin.com/in/kashapovvas/");
+  }
+
   render() {
     const {
       state: {
@@ -84,7 +88,7 @@ class Topbar extends Component {
               <div className="total-element">Итого</div>
               <div className="total-element">{`$${total}`}</div>
             </div>
-            <button type="button" className="buy-btn">Купить</button>
+            <button type="button" className="buy-btn" onClick={this.hireDeveloper}>Купить</button>
           </div>
         </div>
         ) }
