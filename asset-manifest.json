@@ -1,0 +1,22 @@
+{
+  "main.css": "/test_shop-page/static/css/main.da54dc48.chunk.css",
+  "main.js": "/test_shop-page/static/js/main.ac09058c.chunk.js",
+  "main.js.map": "/test_shop-page/static/js/main.ac09058c.chunk.js.map",
+  "runtime~main.js": "/test_shop-page/static/js/runtime~main.b1168f2c.js",
+  "runtime~main.js.map": "/test_shop-page/static/js/runtime~main.b1168f2c.js.map",
+  "static/js/2.83d34f4c.chunk.js": "/test_shop-page/static/js/2.83d34f4c.chunk.js",
+  "static/js/2.83d34f4c.chunk.js.map": "/test_shop-page/static/js/2.83d34f4c.chunk.js.map",
+  "index.html": "/test_shop-page/index.html",
+  "precache-manifest.5c733613b20fb592d96443f5d0647f98.js": "/test_shop-page/precache-manifest.5c733613b20fb592d96443f5d0647f98.js",
+  "service-worker.js": "/test_shop-page/service-worker.js",
+  "static/css/main.da54dc48.chunk.css.map": "/test_shop-page/static/css/main.da54dc48.chunk.css.map",
+  "static/media/1.png": "/test_shop-page/static/media/1.204bd4c0.png",
+  "static/media/2.png": "/test_shop-page/static/media/2.443a6964.png",
+  "static/media/3.png": "/test_shop-page/static/media/3.6e9a914b.png",
+  "static/media/4.png": "/test_shop-page/static/media/4.7865d3f3.png",
+  "static/media/5.png": "/test_shop-page/static/media/5.03eba401.png",
+  "static/media/6.png": "/test_shop-page/static/media/6.ebddea1c.png",
+  "static/media/cart_inactive.svg": "/test_shop-page/static/media/cart_inactive.53e58f1a.svg",
+  "static/media/Topbar.css": "/test_shop-page/static/media/cross.797223ce.svg",
+  "static/media/MainPage.css": "/test_shop-page/static/media/dropdown-off.9ca489c0.svg"
+}
