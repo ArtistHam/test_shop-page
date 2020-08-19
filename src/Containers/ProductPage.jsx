@@ -7,6 +7,7 @@ import routes from "../Helpers/routes";
 import "../Stylesheets/ProductPage.css";
 import tick from "../Images/dropdown-off.svg";
 import { getProduct } from "../Actions/products.action";
+import { setCartItem } from "../Actions/cart.action";
 
 class ProductPage extends Component {
   componentDidMount() {
@@ -32,8 +33,30 @@ class ProductPage extends Component {
     push(routes.root);
   };
 
+  addProductToCart = () => {
+    const {
+      props: {
+        setCartItem,
+        product: {
+          image,
+          name,
+          price,
+        },
+        match: {
+          params: {
+            id,
+          },
+        },
+      },
+    } = this;
+    setCartItem({
+      id, count: 1, image, name, price,
+    });
+  };
+
   render() {
-    const { props: { product } } = this;
+    const { props: { product, cartItems } } = this;
+    const isInCart = cartItems.find(item => +item.id === +product.id);
     return (
       <div className="product-page">
         <img alt="goods" src={product.image} className="item-preview" />
@@ -49,9 +72,15 @@ class ProductPage extends Component {
               Размер
               <img alt="back" src={tick} />
             </div>
-            <button type="button" className="add-to-cart-btn">
-              В КОРЗИНУ
-            </button>
+            {isInCart ? (
+              <button type="button" className="add-to-cart-btn add-to-cart-btn-disabled">
+                В КОРЗИНЕ
+              </button>
+            ) : (
+              <button type="button" className="add-to-cart-btn" onClick={this.addProductToCart}>
+                В КОРЗИНУ
+              </button>
+            )}
           </div>
           <div className="product-description-wrapper">
             <article className="product-description">
@@ -91,8 +120,10 @@ class ProductPage extends Component {
 
 const mapStateToProps = state => ({
   product: state.ProductList.setProductReducer,
+  cartItems: state.Cart,
 });
 
 export default connect(mapStateToProps, {
   getProduct,
+  setCartItem,
 })(withRouter(ProductPage));

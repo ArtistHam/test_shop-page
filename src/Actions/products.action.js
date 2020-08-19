@@ -10,6 +10,8 @@ export const getProductRequest = createAction("GET_PRODUCT_REQUEST");
 export const getProductSuccess = createAction("GET_PRODUCT_SUCCESS");
 export const getProductFailure = createAction("GET_PRODUCT_FAILURE");
 
+export const setSortAction = createAction("SET_SORT_ACTION");
+
 export const getProductList = () => (dispatch) => {
   dispatch(getProductListRequest());
   try {
@@ -28,4 +30,8 @@ export const getProduct = id => (dispatch) => {
   } catch (e) {
     dispatch(getProductFailure(e));
   }
+};
+
+export const setSort = sortDirection => (dispatch) => {
+  dispatch(setSortAction(sortDirection));
 };

@@ -44,7 +44,7 @@ export default [
   },
   {
     id: 4,
-    category: "рубашки",
+    category: "плащи",
     name: "Куртка-рубашка с карманами",
     price: "$1240",
     in_stock: 11,
@@ -68,7 +68,7 @@ export default [
   },
   {
     id: 6,
-    category: "рубашки",
+    category: "брюки",
     name: "Укороченные зауженные брюки",
     price: "$647",
     in_stock: 7,

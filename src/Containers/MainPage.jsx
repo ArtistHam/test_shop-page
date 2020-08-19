@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import routes from "../Helpers/routes";
 
-import { getProductList } from "../Actions/products.action";
+import { getProductList, setSort } from "../Actions/products.action";
 
 import "../Stylesheets/MainPage.css";
 
@@ -12,6 +12,7 @@ import "../Stylesheets/MainPage.css";
 class MainPage extends Component {
   state = {
     showSortDropdown: false,
+    categorySortedBy: "все",
   };
 
   componentDidMount = () => {
@@ -29,10 +30,26 @@ class MainPage extends Component {
     push(`${routes.product}/${id}`);
   }
 
+  sortByCategory = category => () => {
+    this.setState({
+      categorySortedBy: category,
+    });
+  }
+
+  setProductsSort = sortDirection => () => {
+    const {
+      props: {
+        setSort,
+      },
+    } = this;
+    setSort(sortDirection);
+  }
+
   render() {
     const {
       state: {
         showSortDropdown,
+        categorySortedBy,
       },
       props: {
         productList,
@@ -42,11 +59,11 @@ class MainPage extends Component {
       <div className="main-page">
         <aside className="sidebar">
           <ul className="sidebar-menu">
-            <li className="sidebar-menu-item">ВСЕ</li>
-            <li className="sidebar-menu-item">ПЛАЩИ</li>
-            <li className="sidebar-menu-item">КРОССОВКИ</li>
-            <li className="sidebar-menu-item">РУБАШКИ</li>
-            <li className="sidebar-menu-item">БРЮКИ</li>
+            <li className={`sidebar-menu-item ${categorySortedBy === "все" ? "sidebar-menu-item-active" : ""}`} onClick={this.sortByCategory("все")}>ВСЕ</li>
+            <li className={`sidebar-menu-item ${categorySortedBy === "плащи" ? "sidebar-menu-item-active" : ""}`} onClick={this.sortByCategory("плащи")}>ПЛАЩИ</li>
+            <li className={`sidebar-menu-item ${categorySortedBy === "обувь" ? "sidebar-menu-item-active" : ""}`} onClick={this.sortByCategory("обувь")}>КРОССОВКИ</li>
+            <li className={`sidebar-menu-item ${categorySortedBy === "рубашки" ? "sidebar-menu-item-active" : ""}`} onClick={this.sortByCategory("рубашки")}>РУБАШКИ</li>
+            <li className={`sidebar-menu-item ${categorySortedBy === "брюки" ? "sidebar-menu-item-active" : ""}`} onClick={this.sortByCategory("брюки")}>БРЮКИ</li>
             <li className="sidebar-menu-item sort-btn" onClick={this.toggleSortDropdown}>
               Сортировать
               <span className={`dropdownOff ${showSortDropdown ? "" : "dropdownOn"}`} />
@@ -54,15 +71,14 @@ class MainPage extends Component {
           </ul>
           <div className={`sidebar-dropdown ${showSortDropdown ? "" : "sidebar-dropdown-disabled"}`}>
             <ul className="dropdown-menu">
-              <li className="dropdown-menu-item">От дорогих к дешевым</li>
-              <li className="dropdown-menu-item">От дешевых к дорогим</li>
-              <li className="dropdown-menu-item">Популярные</li>
-              <li className="dropdown-menu-item">Новые</li>
+              <li className="dropdown-menu-item" onClick={this.setProductsSort("DESC")}>От дорогих к дешевым</li>
+              <li className="dropdown-menu-item" onClick={this.setProductsSort("ASC")}>От дешевых к дорогим</li>
             </ul>
           </div>
         </aside>
         <main className="main-page-content">
-          {productList.length > 0 ? productList.map(product => (
+          {productList.length > 0
+            ? productList.map(product => (product.category === categorySortedBy || categorySortedBy === "все") && (
             <div className="item-card" onClick={this.goToProductPage(product.id)}>
               <img alt="goods" src={product.image} className="item-card-image" />
               <div className="item-card-description">
@@ -76,7 +92,7 @@ class MainPage extends Component {
                 </div>
               </div>
             </div>
-          )) : "NO DATA"}
+            )) : "NO DATA"}
 
         </main>
       </div>
@@ -90,4 +106,5 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   getProductList,
+  setSort,
 })(withRouter(MainPage));

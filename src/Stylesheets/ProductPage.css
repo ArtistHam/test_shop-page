@@ -82,7 +82,7 @@
 
 .add-to-cart-btn {
   background-color: transparent;
-  border: 2px solid #CBCBCB;
+  border: 2px solid #000000;
   box-sizing: border-box;
   padding: 22px 78px;
   font-family: Roboto;
@@ -93,8 +93,19 @@
   text-align: center;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #C4C4C4;
+  color: #000000;
   margin-left: 20px;
+  cursor: pointer;
+}
+
+.add-to-cart-btn-disabled {
+  border: 2px solid #C4C4C4;
+  color: #C4C4C4;
+  cursor: not-allowed;
+}
+
+.add-to-cart-btn {
+  outline: none;
 }
 
 .product-description-wrapper{
