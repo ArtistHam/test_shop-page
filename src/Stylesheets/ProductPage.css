@@ -6,7 +6,7 @@
 .item-preview {
   height: 850px;
   width: 560px;
-  background-color: red;
+  background-color: rgb(179, 179, 179);
   margin-top: -112px;
 }
 
@@ -45,6 +45,7 @@
   line-height: 12px;
   letter-spacing: 1px;
   color: #A3A3A3;;
+  text-transform: uppercase;
 }
 
 .product-name {
