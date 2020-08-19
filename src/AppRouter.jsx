@@ -18,7 +18,7 @@ class AppRouter extends React.Component {
           />
           <Route
             exact
-            path={routes.product}
+            path={routes.productPage}
             component={ProductPage}
           />
         </Switch>
