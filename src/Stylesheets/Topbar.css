@@ -55,6 +55,8 @@
 .items-list {
   margin-top: 143px;
   border-top: 1px solid #424242;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .item {
@@ -67,6 +69,9 @@
   width: 83px;
   height: 83px;
   background-color: green;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .item-information {
@@ -111,7 +116,7 @@
   line-height: 16px;
   letter-spacing: 1px;
   color: #FFFFFF;
-  margin-left: 76px;
+  margin-left: 56px;
 }
 
 .total {
@@ -147,4 +152,7 @@
   text-transform: uppercase;
   color: #FFFFFF;
   padding: 22px 93px;
+}
+.empty-cart-text {
+  text-align: center;
 }
